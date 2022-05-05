@@ -13,14 +13,14 @@ func AllPermissions(c *fiber.Ctx) error {
 	return c.JSON(permissions)
 }
 
-// func CreatePermission(c *fiber.Ctx)error{
-// 	var permission models.Permission
+func CreatePermission(c *fiber.Ctx)error{
+	var permission models.Permission
 
-// 	if err := c.BodyParser(&permission); err != nil{
-// 		return err
-// 	}
+	if err := c.BodyParser(&permission); err != nil{
+		return err
+	}
 
-// 	database.DB.Create(&permission)
+	database.DB.Create(&permission)
 
-// 	return c.JSON(permission)
-// }
+	return c.JSON(permission)
+}

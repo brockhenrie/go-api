@@ -9,8 +9,9 @@ import (
 )
 
 func AllUsers(c *fiber.Ctx) error {
+	limit := 5
 	var users []models.User
-	database.DB.Preload("Role").Find(&users)
+	database.DB.Preload("Role").Limit(limit).Find(&users)
 	return c.JSON(users)
 }
 
