@@ -44,6 +44,7 @@ func CreateRole(c *fiber.Ctx) error {
 	return c.JSON(role)
 }
 
+
 func GetRole(c *fiber.Ctx) error {
 	id, _ := strconv.Atoi(c.Params("id"))
 
@@ -79,7 +80,7 @@ func UpdateRole(c *fiber.Ctx) error {
 
 	var result interface{}
 
-	database.DB.Table("role_permissions").Where("role_id", id).Delete(&result)
+	database.DB.Table("role_permissions").Where("role_id", id).Delete(result)
 
 	role := models.Role{
 		Id:          uint(id),
